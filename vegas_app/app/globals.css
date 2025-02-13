@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Black+Ops+One&family=Audiowide&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --vegas-dark: #0F0B2B;
+  --vegas-purple: #443174;
+  --vegas-gold: #D0B36F;
+  --vegas-pink: #DF337B;
+  --vegas-brown: #84714E;
+  --vegas-light: #EDEDED;
+}
+
+body {
+  background-color: var(--vegas-dark);
+  color: var(--vegas-light);
+  font-family: 'Inter', sans-serif;
+}
+
+.glass-nav {
+  background: rgba(15, 11, 43, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.gradient-card {
+  background: linear-gradient(135deg, rgba(68, 49, 116, 0.4), rgba(15, 11, 43, 0.4));
+  border: 1px solid rgba(208, 179, 111, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom, rgba(15, 11, 43, 0.9), rgba(15, 11, 43, 0.95));
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.stat-item {
+  background: rgba(208, 179, 111, 0.1);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.nav-link {
+  @apply flex items-center gap-2 px-4 py-2 rounded-lg text-gray-400 hover:text-white hover:bg-[#443174] transition-all duration-200;
+}
+
+.nav-link.active {
+  @apply text-white bg-[#443174];
+}
+
+.feature-card {
+  @apply gradient-card rounded-xl p-6 flex flex-col gap-4 transition-all duration-300 hover:border-[#D0B36F] hover:scale-[1.02];
+}
+
+.orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.audiowide {
+  font-family: 'Audiowide', cursive;
+}
+
+.power-rankings-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  background: linear-gradient(to right, var(--vegas-gold), #fff, var(--vegas-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  animation: power-rankings-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes power-rankings-glow {
+  from {
+    text-shadow: 
+      0 0 10px var(--vegas-gold),
+      0 0 20px var(--vegas-gold),
+      0 0 30px var(--vegas-purple),
+      0 0 40px var(--vegas-purple);
+  }
+  to {
+    text-shadow: 
+      0 0 20px var(--vegas-gold),
+      0 0 30px var(--vegas-gold),
+      0 0 40px var(--vegas-purple),
+      0 0 50px var(--vegas-purple),
+      0 0 60px var(--vegas-purple);
+  }
+}
+
+/* Player Card Specific Styles */
+.player-card-title {
+  background: linear-gradient(to right, #D0B36F, #84714E);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: 'Audiowide', cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.player-card-stats {
+  background: rgba(208, 179, 111, 0.1);
+  border: 1px solid rgba(208, 179, 111, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.player-card-image-overlay {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+/* Modal Styles */
+.stats-modal-overlay {
+  background-color: rgba(15, 11, 43, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.stats-modal-content {
+  background-color: var(--vegas-dark);
+  border: 1px solid var(--vegas-gold);
+}
+
+.stats-table-header {
+  background-color: var(--vegas-dark);
+  border-bottom: 1px solid var(--vegas-gold);
+}
+
+.stats-row:hover {
+  background-color: rgba(208, 179, 111, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .power-rankings-title {
+    font-size: 2rem;
+  }
+  
+  .player-card {
+    margin: 1rem 0;
+  }
+
+  .stats-modal-content {
+    width: 95vw;
+    max-height: 90vh;
+    margin: 5vh auto;
+  }
+
+  .stats-table {
+    font-size: 0.75rem;
+  }
+}
